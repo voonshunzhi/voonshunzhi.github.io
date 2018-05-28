@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Portfolio Website</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+   <div class="background">
+    <!--This is my navbar actually-->
+    <div class="container">
+        <section class="navbar-section">
+            <div class="navBar">
+                <ul class="navigation" id="navigation">
+                    <li class="stick-to-left-nav"><a href="#"><img src="img/icons8_Iron_Man_40px.png"/ alt="ironman" title="ironman" class="icon-size--large"></a></li>
+                    <li class="navigation__link"><a href="#aboutMe" class="navigation__anchor">About me</a></li>
+                    <li class="navigation__link"><a href="#education" class="navigation__anchor">As a student</a></li>
+                    <li class="navigation__link"><a href="#passion" class="navigation__anchor">Passion</a></li>
+                    <li class="navigation__link navigation__link--float-right"><a href="#contact-me" class="navigation__anchor">Contact Me</a></li>
+                    <li class="show-and-hide"><img src="img/icons8_Menu_64px.png" onclick="showDropDown()" class="icon-size"></li>
+                </ul>
+            </div>
+        </section>   
+    <!--This is my header-->
+      <div class="large-image">
+          <div class="overlay"></div>
+          <img src="img/allianz-arena-architecture-car-1103969.jpg" alt="" class="full-screen-image">
+          <div class="header">
+               <h1 class="header__title">My portfolio Website</h1>
+           </div>
+      </div>
+    <div class="container--side--padding">
+       
+       
+    <!--About Me section-->
+       <section class="block">
+        <div id="aboutMe">
+          <h2>About me</h2>
+           <div class="row row--spaceTop">
+                 <div class="col-6">
+                  <div class="imgOfMe">
+                    <img src="img/black-background-boy-dark-879474.jpg"/ alt="" width="80%" class="center-block">
+                </div>
+                </div>
+               <div class="col-6 col-6--right">
+                <div class="aboutMe">
+                    <h2><em class="less-bold">Student . Programming enthusiast . Football lover</em></h2>
+                    <p class="justif-text">
+                        Hi what's poppin? I'm Voon, a keen lover of programming , a university student and football enthusiast,my favourite programming language is Javascript because it is now a <strong>'full-stack'</strong> language. I like football by not playing it but watching it . My dream football team is Leicester City in England, but in reality, i like Malaysia National Team more than any team in the world.
+                     </p>
+                </div>
+               </div>
+            </div>
+        </div>
+       </section>
+       
+      <section class="block">
+           <div id="passion">
+               <h2>My Passion</h2>
+               <div class="row">
+                  <div class="col-6">
+                      <img src="img/code-coding-computer-574071.jpg" alt="" class="center-block" width="80%">
+                  </div>
+                  <div class="col-6 col-6--right">
+                    <h2><i>Web development . Startup . Life</i></h2>
+                   <p class="justif-text">
+                       I inclined towards programming when i started my first programming class in university and this endorses me to shift from engineering to cs major.
+                       I loves startup and like to ponder on the way i live my life.  
+                   </p>
+                   </div> 
+               </div>
+           </div>
+       </section>
+       
+    <!--Education -->
+       <section class="block">
+           <div id="education">
+               <h2>As a student...</h2>
+               <div class="row">
+                   <h3><em class="lessbold">Meet my school - University of Nottingham Malaysia Campus</em></h3>
+                   <iframe src="https://www.youtube.com/embed/vfforSfmK4I" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="center-block iframe"></iframe>
+                </div>
+                <div class="row">
+                   <h3><em>Meet my summer school - NEXT Academy</em></h3>
+                   <iframe src="https://www.youtube.com/embed/RnWDXNx_kss" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen class="center-block iframe"></iframe>
+                </div>  
+               
+           </div>
+       </section>
+       <section class="block">
+          <div id="contact-me center-block">
+              <div>
+                  <button class="center-block email-me"><a href="mailto:voonshunzhi@gmail.com" class="email-address">EMAIL ME !</a></button>
+              </div>
+          </div>
+      </section>
+      
+      </div> 
+      <section>
+               <div id="contactMe" class="navigation navigation--horizon navigation--bottom">
+                    <div><img src="img/icons8_Facebook_40px_1.png" alt="facebook" class="img-shrink"></div>
+                    <div class="contactHover"><a href="https://www.facebook.com/shun.zhi.5" class="navigation__anchor text-shrink" target="_blank">Me on FB</a></div>
+                    <div><img src="img/icons8_Instagram_40px.png" alt="instagram" class="img-shrink"></div>
+                    <div class="contactHover"><a href="https://www.instagram.com" class="navigation__anchor text-shrink" target="_blank">Me on Instagram</a></div> 
+               </div>
+       </section>
+        <nav class="dropdown" id="dropdown-menu">
+        <select id="dropdown">
+             <option value="item">Check This out</option>
+            <option value="aboutMe">About Me</a></option>
+            <option value="education">As a student...</option>
+            <option value="passion">Passion</option>
+        </select>
+        </nav>
+       
+    </div>
+</div>
+    <script>
+        var dropdown = false;
+function showDropDown(){
+    var target = document.getElementById('dropdown-menu');
+    var top = document.getElementById("navigation").clientHeight;
+    window.onresize = function(){
+        dropdown = false;
+        target.style.display = 'none';
+    }
+    dropdown = !dropdown;
+    if(dropdown){
+        target.style.top = top + "px";
+        target.style.display = "block";
+    }else{
+        target.style.display = "none";
+    }
+    
+    
+    var select = document.getElementById("dropdown");
+    select.onchange = function(){
+        values = select.value;
+        var scroll_target = document.getElementById(values);
+        scroll_target.scrollIntoView({behaviour:'smooth'});
+        target.style.display = "none";
+        dropdown = false;
+        select.value = "item";
+    }
+    
+    
+    
+}
+    </script>
+</body>
+</html>
